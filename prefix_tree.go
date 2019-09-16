@@ -2,9 +2,13 @@ package main
 
 type PrefixTree Node
 
-func (pm *PrefixTree) Get(key string) *Node {
+func New() *PrefixTree {
+	return (*PrefixTree)(NewNode(nil))
+}
+
+func (t *PrefixTree) Get(key string) *Node {
 	path := []rune(key)
-	n := (*Node)(pm)
+	n := (*Node)(t)
 
 	for i := range path {
 		v := string(path[i])
@@ -18,9 +22,9 @@ func (pm *PrefixTree) Get(key string) *Node {
 	return n
 }
 
-func (pm *PrefixTree) Set(key string, value interface{}) {
+func (t *PrefixTree) Set(key string, value interface{}) {
 	path := []rune(key)
-	n := (*Node)(pm)
+	n := (*Node)(t)
 
 	for i := range path {
 		v := string(path[i])
