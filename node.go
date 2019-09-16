@@ -10,6 +10,10 @@ func NewNode(parent *Node) *Node {
 	return &Node{parent, make(map[string]*Node), nil}
 }
 
+func (n *Node) Value() interface{} {
+	return n.value
+}
+
 func (n *Node) Values() []interface{} {
 	all := make([]interface{}, 0, len(n.children)+1)
 	all = append(all, n.value)
