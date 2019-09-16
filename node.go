@@ -5,10 +5,11 @@ type Node struct {
 	children map[string]*Node
 	value    interface{}
 	isTerm   bool
+	len      int
 }
 
 func NewNode(parent *Node) *Node {
-	return &Node{parent, make(map[string]*Node), nil, false}
+	return &Node{parent, make(map[string]*Node), nil, false, 0}
 }
 
 func (n *Node) Value() interface{} {

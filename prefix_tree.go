@@ -33,9 +33,11 @@ func (t *PrefixTree) Set(key string, value interface{}) {
 			m = NewNode(n)
 		}
 		n.children[v] = m
+		n.len += 1
 		n = m
 	}
 
+	n.len += 1
 	n.isTerm = true
 	n.value = value
 }
