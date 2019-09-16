@@ -41,3 +41,7 @@ func (t *PrefixTree) Set(key string, value interface{}) {
 	n.isTerm = true
 	n.value = value
 }
+
+func (t *PrefixTree) Len() int {
+	return t.len
+}
