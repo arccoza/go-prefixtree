@@ -18,5 +18,5 @@ func main() {
 	t.Set("a1122", 1117)
 	// spew.Dump(pm)
 	// fmt.Println(pm)
-	fmt.Println(t.Get("a").len)
+	fmt.Println(t.Get("a").Len())
 }

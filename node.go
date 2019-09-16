@@ -41,6 +41,10 @@ func (n *Node) IsTerm() bool {
 	return n.isTerm
 }
 
+func (n *Node) Len() int {
+	return n.len
+}
+
 // func (n *Node) String() string {
 //   s := fmt.Sprintf("%v", n.value)
 //   for k, v := range n.children {
