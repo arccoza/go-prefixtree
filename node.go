@@ -1,12 +1,13 @@
 package main
 
 type Node struct {
+	Parent   *Node
 	Children map[string]*Node
 	Value    interface{}
 }
 
-func NewNode() *Node {
-	return &Node{make(map[string]*Node), nil}
+func NewNode(parent *Node) *Node {
+	return &Node{parent, make(map[string]*Node), nil}
 }
 
 func (n *Node) Values() []interface{} {

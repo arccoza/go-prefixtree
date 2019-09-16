@@ -7,7 +7,7 @@ import (
 
 func main() {
 	fmt.Println("Hello World")
-	pm := PrefixTree{make(map[string]*Node), nil}
+	pm := PrefixTree{nil, make(map[string]*Node), nil}
 	pm.Set("a1", 5)
 	pm.Set("a2", 4)
 	pm.Set("a3", 3)

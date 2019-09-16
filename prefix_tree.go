@@ -26,7 +26,7 @@ func (pm *PrefixTree) Set(key string, value interface{}) {
 		v := string(path[i])
 		m, ok := n.Children[v]
 		if !ok {
-			m = NewNode()
+			m = NewNode(n)
 		}
 		n.Children[v] = m
 		n = m
