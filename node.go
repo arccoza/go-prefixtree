@@ -18,7 +18,6 @@ func (n *Node) Value() interface{} {
 
 func (n *Node) Values() []interface{} {
 	all := make([]interface{}, 0, len(n.children)+1)
-	all = append(all, n.value)
 	nodes := make([]Node, 0, 10)
 	nodes = append(nodes, *n)
 
@@ -26,11 +25,11 @@ func (n *Node) Values() []interface{} {
 		n := &nodes[0]
 		nodes = nodes[1:]
 
+		if n.isTerm {
+			all = append(all, n.value)
+		}
 		for _, v := range n.children {
-			if len(v.children) > 0 {
-				nodes = append(nodes, *v)
-			}
-			all = append(all, v.value)
+			nodes = append(nodes, *v)
 		}
 	}
 
