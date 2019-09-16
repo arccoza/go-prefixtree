@@ -36,5 +36,6 @@ func (t *PrefixTree) Set(key string, value interface{}) {
 		n = m
 	}
 
+	n.isTerm = true
 	n.value = value
 }

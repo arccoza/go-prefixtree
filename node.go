@@ -4,10 +4,11 @@ type Node struct {
 	parent   *Node
 	children map[string]*Node
 	value    interface{}
+	isTerm   bool
 }
 
 func NewNode(parent *Node) *Node {
-	return &Node{parent, make(map[string]*Node), nil}
+	return &Node{parent, make(map[string]*Node), nil, false}
 }
 
 func (n *Node) Value() interface{} {
