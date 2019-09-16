@@ -12,7 +12,7 @@ func (t *PrefixTree) Get(key string) *Node {
 
 	for i := range path {
 		v := string(path[i])
-		m, ok := n.Children[v]
+		m, ok := n.children[v]
 		if !ok {
 			return nil
 		}
@@ -28,13 +28,13 @@ func (t *PrefixTree) Set(key string, value interface{}) {
 
 	for i := range path {
 		v := string(path[i])
-		m, ok := n.Children[v]
+		m, ok := n.children[v]
 		if !ok {
 			m = NewNode(n)
 		}
-		n.Children[v] = m
+		n.children[v] = m
 		n = m
 	}
 
-	n.Value = value
+	n.value = value
 }

@@ -1,9 +1,9 @@
 package main
 
 type Node struct {
-	Parent   *Node
-	Children map[string]*Node
-	Value    interface{}
+	parent   *Node
+	children map[string]*Node
+	value    interface{}
 }
 
 func NewNode(parent *Node) *Node {
@@ -11,8 +11,8 @@ func NewNode(parent *Node) *Node {
 }
 
 func (n *Node) Values() []interface{} {
-	all := make([]interface{}, 0, len(n.Children)+1)
-	all = append(all, n.Value)
+	all := make([]interface{}, 0, len(n.children)+1)
+	all = append(all, n.value)
 	nodes := make([]Node, 0, 10)
 	nodes = append(nodes, *n)
 
@@ -20,11 +20,11 @@ func (n *Node) Values() []interface{} {
 		n := &nodes[0]
 		nodes = nodes[1:]
 
-		for _, v := range n.Children {
-			if len(v.Children) > 0 {
+		for _, v := range n.children {
+			if len(v.children) > 0 {
 				nodes = append(nodes, *v)
 			}
-			all = append(all, v.Value)
+			all = append(all, v.value)
 		}
 	}
 
@@ -32,8 +32,8 @@ func (n *Node) Values() []interface{} {
 }
 
 // func (n *Node) String() string {
-//   s := fmt.Sprintf("%v", n.Value)
-//   for k, v := range n.Children {
+//   s := fmt.Sprintf("%v", n.value)
+//   for k, v := range n.children {
 //     s += fmt.Sprintf("\n>>%v: %v", k, v)
 //   }
 //   return s
