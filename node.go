@@ -48,6 +48,10 @@ func (n *Node) Len() int {
 	return n.len
 }
 
+func (n *Node) Nodes() *NodeIter {
+	return NewNodeIter(n, 10)
+}
+
 func (n *Node) Gen() func() (*Node, bool) {
 	nodes := make([]Node, 0, 10)
 	nodes = append(nodes, *n)

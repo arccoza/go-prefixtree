@@ -24,4 +24,9 @@ func main() {
 	for n, ok := g(); ok; n, ok = g() {
 		fmt.Println(n.Value())
 	}
+
+	for it := t.AsNode().Nodes(); it.Next(); {
+		fmt.Println(it.Value().Value())
+		// it.Close()
+	}
 }
