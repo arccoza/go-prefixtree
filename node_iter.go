@@ -2,7 +2,7 @@ package main
 
 type NodeIter struct {
 	nodes []*Node
-	value *Node
+	item *Node
 }
 
 func NewNodeIter(n *Node, size int) *NodeIter {
@@ -20,7 +20,7 @@ func (i *NodeIter) Next() bool {
 			i.nodes = append(i.nodes, v)
 		}
 		if n.isTerm {
-			i.value = n
+			i.item = n
 			return true
 		}
 	}
@@ -29,8 +29,8 @@ func (i *NodeIter) Next() bool {
 	return false
 }
 
-func (i *NodeIter) Value() *Node {
-	return i.value
+func (i *NodeIter) Item() *Node {
+	return i.item
 }
 
 func (i *NodeIter) Done() bool {
