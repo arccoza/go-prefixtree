@@ -21,7 +21,7 @@ func main() {
 	fmt.Println(t.Get("a").Values())
 
 	for it := t.AsNode().Nodes(); it.Next(); {
-		fmt.Println(it.Value().Value())
+		fmt.Println(it.Item().Value())
 		// it.Close()
 	}
 }

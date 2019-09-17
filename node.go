@@ -22,19 +22,9 @@ func (n *Node) Value() interface{} {
 
 func (n *Node) Values() []interface{} {
 	all := make([]interface{}, 0, len(n.children)+1)
-	nodes := make([]Node, 0, 10)
-	nodes = append(nodes, *n)
-
-	for len(nodes) > 0 {
-		n := &nodes[0]
-		nodes = nodes[1:]
-
-		if n.isTerm {
-			all = append(all, n.value)
-		}
-		for _, v := range n.children {
-			nodes = append(nodes, *v)
-		}
+	
+	for it := n.Nodes(); it.Next(); {
+		all = append(all, it.Item().Value())
 	}
 
 	return all
