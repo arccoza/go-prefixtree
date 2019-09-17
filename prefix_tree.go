@@ -22,6 +22,10 @@ func (t *PrefixTree) Get(key string) *Node {
 	return n
 }
 
+func (t *PrefixTree) Find(glob string) *NodeIter {
+	return nil
+}
+
 func (t *PrefixTree) Set(key string, value interface{}) {
 	path := []rune(key)
 	n := (*Node)(t)
