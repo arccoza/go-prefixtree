@@ -52,28 +52,6 @@ func (n *Node) Nodes() *NodeIter {
 	return NewNodeIter(n, 10)
 }
 
-func (n *Node) Gen() func() (*Node, bool) {
-	nodes := make([]Node, 0, 10)
-	nodes = append(nodes, *n)
-
-	return func() (*Node, bool) {
-		for len(nodes) > 0 {
-			n := &nodes[0]
-			nodes = nodes[1:]
-
-			for _, v := range n.children {
-				nodes = append(nodes, *v)
-			}
-			if n.isTerm {
-				return n, true
-			}
-		}
-
-		nodes = nil
-		return nil, false
-	}
-}
-
 // func (n *Node) String() string {
 //   s := fmt.Sprintf("%v", n.value)
 //   for k, v := range n.children {
