@@ -33,6 +33,10 @@ func (i *NodeIter) Value() *Node {
 	return i.value
 }
 
+func (i *NodeIter) Done() bool {
+	return len(i.nodes) == 0
+}
+
 func (i *NodeIter) Close() {
 	i.nodes = nil
 }
