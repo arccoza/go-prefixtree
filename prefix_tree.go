@@ -42,6 +42,10 @@ func (t *PrefixTree) Set(key string, value interface{}) {
 	n.value = value
 }
 
+func (t *PrefixTree) AsNode() *Node {
+	return (*Node)(t)
+}
+
 func (t *PrefixTree) Len() int {
 	return t.len
 }
