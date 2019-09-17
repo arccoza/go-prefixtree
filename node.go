@@ -40,16 +40,16 @@ func (n *Node) Values() []interface{} {
 	return all
 }
 
+func (n *Node) Nodes() *NodeIter {
+	return NewNodeIter(n, 10)
+}
+
 func (n *Node) IsTerm() bool {
 	return n.isTerm
 }
 
 func (n *Node) Len() int {
 	return n.len
-}
-
-func (n *Node) Nodes() *NodeIter {
-	return NewNodeIter(n, 10)
 }
 
 // func (n *Node) String() string {
