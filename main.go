@@ -18,5 +18,10 @@ func main() {
 	t.Set("a1122", 1117)
 	// spew.Dump(pm)
 	// fmt.Println(pm)
-	fmt.Println(t.Get("a").Len())
+	fmt.Println(t.Get("a").Values())
+
+	g := ((*Node)(t)).Gen()
+	for n, ok := g(); ok; n, ok = g() {
+		fmt.Println(n.Value())
+	}
 }

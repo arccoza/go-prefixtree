@@ -1,5 +1,9 @@
 package main
 
+import (
+	// "fmt"
+)
+
 type Node struct {
 	parent   *Node
 	children map[string]*Node
@@ -42,6 +46,28 @@ func (n *Node) IsTerm() bool {
 
 func (n *Node) Len() int {
 	return n.len
+}
+
+func (n *Node) Gen() func() (*Node, bool) {
+	nodes := make([]Node, 0, 10)
+	nodes = append(nodes, *n)
+
+	return func() (*Node, bool) {
+		for len(nodes) > 0 {
+			n := &nodes[0]
+			nodes = nodes[1:]
+
+			for _, v := range n.children {
+				nodes = append(nodes, *v)
+			}
+			if n.isTerm {
+				return n, true
+			}
+		}
+
+		nodes = nil
+		return nil, false
+	}
 }
 
 // func (n *Node) String() string {
