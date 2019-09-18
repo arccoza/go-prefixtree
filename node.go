@@ -23,7 +23,7 @@ func (n *Node) Value() interface{} {
 
 func (n *Node) Values() []interface{} {
 	all := make([]interface{}, 0, len(n.children)+1)
-	
+
 	for it := n.Nodes(); it.Next(); {
 		all = append(all, it.Item().Value())
 	}

@@ -2,7 +2,7 @@ package main
 
 type NodeIter struct {
 	nodes []*Node
-	item *Node
+	item  *Node
 }
 
 func NewNodeIter(n *Node, size int) *NodeIter {
