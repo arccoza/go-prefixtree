@@ -43,7 +43,7 @@ func (t *PrefixTree) Set(key string, value interface{}) {
 	}
 
 	n.len += 1
-	n.isTerm = true
+	n.isValue = true
 	n.value = value
 }
 

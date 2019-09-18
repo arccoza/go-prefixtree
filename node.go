@@ -9,7 +9,7 @@ type Node struct {
 	parent   *Node
 	children map[string]*Node
 	value    interface{}
-	isTerm   bool
+	isValue   bool
 	len      int
 }
 
@@ -35,16 +35,16 @@ func (n *Node) Nodes() *NodeIter {
 	return NewNodeIter(n, 10)
 }
 
-func (n *Node) IsTerm() bool {
-	return n.isTerm
+func (n *Node) IsValue() bool {
+	return n.isValue
 }
 
 func (n *Node) Del() {
-	n.isTerm = false
+	n.isValue = false
 	n.value = nil
 	n.len -= 1
 
-	for n != nil && !n.isTerm && len(n.children) == 0 {
+	for n != nil && !n.isValue && len(n.children) == 0 {
 		k, p := n.key, n.parent
 		delete(p.children, k)
 		n = p

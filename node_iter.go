@@ -19,7 +19,7 @@ func (i *NodeIter) Next() bool {
 		for _, v := range n.children {
 			i.nodes = append(i.nodes, v)
 		}
-		if n.isTerm {
+		if n.isValue {
 			i.item = n
 			return true
 		}
