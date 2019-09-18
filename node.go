@@ -39,6 +39,18 @@ func (n *Node) IsTerm() bool {
 	return n.isTerm
 }
 
+func (n *Node) Del() {
+	n.isTerm = false
+	n.value = nil
+	n.len -= 1
+
+	for n != nil && !n.isTerm && len(n.children) == 0 {
+		k, p := n.key, n.parent
+		delete(p.children, k)
+		n = p
+	}
+}
+
 func (n *Node) Len() int {
 	return n.len
 }

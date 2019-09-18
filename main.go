@@ -16,10 +16,16 @@ func main() {
 	t.Set("a112", 116)
 	t.Set("a1121", 1116)
 	t.Set("a1122", 1117)
+	t.Set("2222", 2222)
 	// spew.Dump(pm)
 	// fmt.Println(pm)
 	fmt.Println(t.Get("a").Values())
 
+	fmt.Println(t.Get("22"))
+	fmt.Println(t.Get("2222"))
+	t.Get("2222").Del()
+	fmt.Println(t.Get("22"))
+	fmt.Println(t.Get("2222"))
 	for it := t.AsNode().Nodes(); it.Next(); {
 		fmt.Println(it.Item().Value())
 		// it.Close()
