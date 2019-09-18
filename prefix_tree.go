@@ -23,7 +23,7 @@ func (t *PrefixTree) Get(key string) *Node {
 }
 
 // TODO:
-// func (t *PrefixTree) Find(glob string) *NodeIter {
+// func (t *PrefixTree) Find(glob, delim string) *NodeIter {
 // 	return nil
 // }
 
