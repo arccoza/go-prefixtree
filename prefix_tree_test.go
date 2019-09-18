@@ -5,12 +5,20 @@ import (
 	// "flag"
 	// "testing"
 	"fmt"
+	"sort"
 )
 
 // func TestMain(m *testing.M) {
 // 	flag.Parse()
 // 	os.Exit(m.Run())
 // }
+
+func sortValues(vs []interface{}) []interface{} {
+	sort.Slice(vs, func(i, j int) bool {
+		return vs[i].(string) < vs[j].(string)
+	})
+	return vs
+}
 
 func ExamplePrefixTree() {
 	t := New()
@@ -22,12 +30,12 @@ func ExamplePrefixTree() {
 	t.Set("/root/home/bob/Videos/Futurama/S02E02.m4v", "S02E02.m4v")
 
 	fmt.Println(t.Get("/root/").Value())
-	fmt.Println(t.Get("/root/").Values())
+	fmt.Println(sortValues(t.Get("/root/").Values()))
 	fmt.Println(t.Get("/root/home/bob/Videos/Futurama/S02E02.m4v").Value())
-	fmt.Println(t.Get("/root/home/bob/Videos/Futurama/").Values())
+	fmt.Println(sortValues(t.Get("/root/home/bob/Videos/Futurama/").Values()))
 	// Output:
 	// <nil>
-	// [test.txt test2.txt S02E01.m4v S02E02.m4v S01E01.m4v S01E02.m4v]
+	// [S01E01.m4v S01E02.m4v S02E01.m4v S02E02.m4v test.txt test2.txt]
 	// S02E02.m4v
 	// [S01E01.m4v S01E02.m4v S02E01.m4v S02E02.m4v]
 }
