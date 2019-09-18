@@ -42,10 +42,31 @@ func ExamplePrefixTree() {
 
 func ExamplePrefixTree_Set() {
 	t := New()
-	t.Set("aaaa", "some-value")
-	fmt.Println(t.Get("aaaa").Value())
+
+	fmt.Println(t.Len())
+	fmt.Println(t.Get("1234").Value())
+	t.Set("1234", "some-value")
+	fmt.Println(t.Len())
+	fmt.Println(t.Get("1234").Value())
+	fmt.Println(t.Get("1234").Values())
+	t.Set("123456", "some-other-value")
+	t.Set("123444", "yet-another-value")
+	fmt.Println(t.Len())
+	fmt.Println(t.Get("1234").Value())
+	fmt.Println(t.Get("1234").Values())
+	fmt.Println(t.Get("12345").Value())
+	fmt.Println(t.Get("123456").Value())
 	// Output:
+	// 0
+	// <nil>
+	// 1
 	// some-value
+	// [some-value]
+	// 2
+	// some-value
+	// [some-value some-other-value yet-another-value]
+	// <nil>
+	// some-other-value
 }
 
 func ExamplePrefixTree_Get() {
