@@ -65,7 +65,7 @@ func ExamplePrefixTree_Set() {
 	// 1
 	// some-value
 	// [some-value]
-	// 2
+	// 3
 	// some-value
 	// [some-value some-other-value yet-another-value]
 	// <nil>
