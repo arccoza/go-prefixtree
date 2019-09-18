@@ -2,6 +2,7 @@ package main
 
 import (
 // "fmt"
+	"time"
 )
 
 type Node struct {
@@ -9,12 +10,13 @@ type Node struct {
 	parent   *Node
 	children map[string]*Node
 	value    interface{}
-	isValue   bool
+	isValue  bool
 	len      int
+	created  int64
 }
 
 func NewNode(key string, parent *Node) *Node {
-	return &Node{key, parent, make(map[string]*Node), nil, false, 0}
+	return &Node{key, parent, make(map[string]*Node), nil, false, 0, time.Now().UnixNano()}
 }
 
 func (n *Node) Value() interface{} {

@@ -14,7 +14,7 @@ func (t *PrefixTree) Get(key string) *Node {
 		v := string(path[i])
 		m, ok := n.children[v]
 		if !ok {
-			return &Node{"", nil, nil, nil, false, 0}
+			return &Node{"", nil, nil, nil, false, 0, 0}
 		}
 		n = m
 	}
