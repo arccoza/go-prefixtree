@@ -5,6 +5,7 @@ import (
 )
 
 type Node struct {
+	key      string
 	parent   *Node
 	children map[string]*Node
 	value    interface{}
@@ -12,8 +13,8 @@ type Node struct {
 	len      int
 }
 
-func NewNode(parent *Node) *Node {
-	return &Node{parent, make(map[string]*Node), nil, false, 0}
+func NewNode(key string, parent *Node) *Node {
+	return &Node{key, parent, make(map[string]*Node), nil, false, 0}
 }
 
 func (n *Node) Value() interface{} {
