@@ -39,3 +39,28 @@ func ExamplePrefixTree() {
 	// S02E02.m4v
 	// [S01E01.m4v S01E02.m4v S02E01.m4v S02E02.m4v]
 }
+
+func ExamplePrefixTree_Set() {
+	t := New()
+	t.Set("aaaa", "some-value")
+	fmt.Println(t.Get("aaaa").Value())
+	// Output:
+	// some-value
+}
+
+func ExamplePrefixTree_Get() {
+	t := New()
+	t.Set("1234", "some-value")
+
+	fmt.Println(t.Get("1234"))
+	fmt.Println(t.Get("1234").Value())
+	fmt.Println(t.Get("12"))
+	fmt.Println(t.Get("12").Value())
+	fmt.Println(t.Get("12").Values())
+	// Output:
+	// Node{key: 4, parent: 3, value: some-value, isValue: true, children: 0, len: 1}
+	// some-value
+	// Node{key: 2, parent: 1, value: <nil>, isValue: false, children: 1, len: 1}
+	// <nil>
+	// [some-value]
+}
