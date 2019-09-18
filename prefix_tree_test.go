@@ -56,6 +56,9 @@ func ExamplePrefixTree_Set() {
 	fmt.Println(t.Get("1234").Values())
 	fmt.Println(t.Get("12345").Value())
 	fmt.Println(t.Get("123456").Value())
+	t.Set("1234", "updated-value")
+	fmt.Println(t.Get("1234").Value())
+	fmt.Println(t.Get("123456").Value())
 	// Output:
 	// 0
 	// <nil>
@@ -66,6 +69,8 @@ func ExamplePrefixTree_Set() {
 	// some-value
 	// [some-value some-other-value yet-another-value]
 	// <nil>
+	// some-other-value
+	// updated-value
 	// some-other-value
 }
 
