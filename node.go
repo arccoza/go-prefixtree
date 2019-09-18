@@ -58,7 +58,7 @@ func (n *Node) Len() int {
 }
 
 func (n *Node) String() string {
-  s := fmt.Sprintf("{key: %v, parent: %v, value: %v, isValue: %v, children: %v, len: %v}",
+  s := fmt.Sprintf("Node{key: %v, parent: %v, value: %v, isValue: %v, children: %v, len: %v}",
   	n.key, n.parent.key, n.value, n.isValue, len(n.children), n.len)
   return s
 
