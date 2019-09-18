@@ -45,18 +45,18 @@ func ExamplePrefixTree_Set() {
 
 	fmt.Println(t.Len())
 	fmt.Println(t.Get("1234").Value())
-	t.Set("1234", "some-value")
+	t.Set("1234", "some-value") // Set a value at a key
 	fmt.Println(t.Len())
 	fmt.Println(t.Get("1234").Value())
 	fmt.Println(t.Get("1234").Values())
-	t.Set("123456", "some-other-value")
-	t.Set("123444", "yet-another-value")
+	t.Set("123456", "some-other-value")  // Set another value and a (deeper) key
+	t.Set("123444", "yet-another-value") // Set another value on a different branch
 	fmt.Println(t.Len())
 	fmt.Println(t.Get("1234").Value())
 	fmt.Println(t.Get("1234").Values())
 	fmt.Println(t.Get("12345").Value())
 	fmt.Println(t.Get("123456").Value())
-	t.Set("1234", "updated-value")
+	t.Set("1234", "updated-value") // Update the value at "1234"
 	fmt.Println(t.Get("1234").Value())
 	fmt.Println(t.Get("123456").Value())
 	// Output:
