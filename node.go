@@ -1,7 +1,7 @@
 package main
 
 import (
-// "fmt"
+	"fmt"
 	"time"
 )
 
@@ -57,10 +57,9 @@ func (n *Node) Len() int {
 	return n.len
 }
 
-// func (n *Node) String() string {
-//   s := fmt.Sprintf("%v", n.value)
-//   for k, v := range n.children {
-//     s += fmt.Sprintf("\n>>%v: %v", k, v)
-//   }
-//   return s
-// }
+func (n *Node) String() string {
+  s := fmt.Sprintf("{key: %v, parent: %v, value: %v, isValue: %v, children: %v, len: %v}",
+  	n.key, n.parent.key, n.value, n.isValue, len(n.children), n.len)
+  return s
+
+}
